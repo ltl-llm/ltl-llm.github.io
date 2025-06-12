@@ -62,7 +62,7 @@
     <div class="container" id="main">
         <div class="row mt-4">
             <h2 class="col-md-12 text-center">
-                <b><font size="+6">Conformal Temporal Logic Planning using Large Language Models</font></b>: </br> Knowing When to Do What and When to Ask for Help </br> 
+                <b><font size="+6">Conformal Temporal Logic Planning using Large Language Models</font></b>
             </h2>
         </div>
 
@@ -84,6 +84,7 @@
                     &nbsp&nbsp&nbsp
                     <a href="https://www.uzh.ch/en.html">
                         <image src="img/uzh.png" height="45px"> 
+                            
                         <!-- UZH  -->
                     </a>
                 </ul>
@@ -107,18 +108,15 @@
                 <h4><strong>Video</strong></h4>
                 </a>
             </div> -->
-            <div class="col-md-2 text-center">
-                <!-- <a href="https://github.com/kantaroslab/LTL_LLM"> -->
+            <!-- <div class="col-md-2 text-center">
                 <image src="img/github.png" height="45px">
                 <h4><strong>Code (coming soon)</strong></h4>
-                <!-- <h6>Code (coming soon)</h6> -->
                 </a>
-            </div>
+            </div> -->
             <div class="col-md-2 text-center">
-                <!-- <a href=""> -->
-                <image src="img/colab.png" height="45px">
-                <h4><strong>Demo (coming soon)</strong></h4>
-                <!-- <h6>Demo (coming soon)</h6> -->
+                <a href="https://vimeo.com/994077187?share=copy">
+                <image src="img/vimeo.jpg" height="45px">
+                <h4><strong>Demonstration</strong></h4>
                 </a>
             </div>
         </div>
@@ -140,13 +138,125 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    This project addresses a new motion planning problem for mobile robots tasked with accomplishing multiple high-level sub-tasks, expressed using natural language (NL), in a temporal and logical order. To formally define such missions, we leverage LTL defined over NL-based atomic predicates modeling the considered NL-based sub-tasks. This is contrast to related planning approaches that define LTL tasks over atomic predicates capturing desired low-level system configurations. Our goal is to design robot plans that satisfy LTL tasks defined over NL-based atomic propositions. A novel technical challenge arising in this setup lies in reasoning about correctness of a robot plan with respect to such LTL-encoded tasks. To address this problem, we propose HERACLEs, a hierarchical conformal natural language planner, that relies on a novel integration of existing tools that include (i) automata theory to determine the NL-specified sub-task the robot should accomplish next to make mission progress; (ii) Large Language Models to design robot plans satisfying these sub-tasks; and (iii) conformal prediction to reason probabilistically about the correctness of the designed plans and mission satisfaction and to determine if external assistance is required. We provide extensive comparative experiments on mobile manipulation tasks. Paper can be found <a href="https://arxiv.org/abs/2309.10092">here</a>.
+                    This paper addresses temporal logic task planning problems for mobile robots. We consider missions that require accomplishing multiple high-level sub-tasks, expressed in natural language (NL), in a temporal and logical order. To formally define the mission, we treat these sub-tasks as atomic predicates in a Linear Temporal Logic (LTL) formula. We refer to this task specification framework as LTL-NL. Our goal is to design plans, defined as sequences of robot actions, accomplishing LTL-NL tasks. This action planning problem cannot be solved directly by existing LTL planners due to the NL nature of atomic predicates. Therefore, we propose HERACLEs, a hierarchical neuro-symbolic planner that relies on a novel integration of (i) existing symbolic planners generating high-level task plans determining the order at which the NL sub-tasks should be accomplished; (ii) pre-trained Large Language Models (LLMs) to design sequences of robot actions for each sub-task in these task plans; and (iii) conformal prediction acting as a formal interface between (i) and (ii) and managing uncertainties due to LLM imperfections. We show, both theoretically and empirically, that HERACLEs can achieve user-defined mission success rates.  We demonstrate the efficiency of HERACLEs through comparative numerical experiments against recent LLM-based planners as well as hardware experiments on mobile manipulation tasks. Finally, we present examples demonstrating that our approach enhances user-friendliness compared to conventional symbolic approaches.
+            </div>
+        </div>
+
+
+
+        <div class="container mt-4">
+            <!-- First Row -->
+            <h3 class="mt-4 mb-2">
+                Demonstration Videos - Simulation Environment (Gazebo)
+            </h3>
+            <div class="d-flex justify-content-center flex-wrap mb-3">
+                <div class="p-2" style="flex: 0 0 50%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/case1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-2" style="flex: 0 0 50%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/case2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            
+            <h3 class="mt-4 mb-2">
+                Demonstration Videos - TurtleBot 3 Waffle Pi (OpenManipulator-X)
+            </h3>
+            <!-- Second Row -->
+            <div class="d-flex justify-content-center flex-wrap mb-3">
+                <div class="p-2" style="flex: 0 0 50%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/h_case1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-2" style="flex: 0 0 50%;">
+                    
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/h_case3.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        
+        </div>
+        
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 col-lg-12">
+                <h3 class="mt-4 mb-2">
+                    Experiment Video: Long-Horizon Mission on Real-World Robot
+                </h3>
+                <div class="card mb-4 mt-4 text-dark bg-light">
+                    <!-- <h5 class="card-header">Deliver either Coke #1 or Coke #2 to X3</h5> -->
+                    <div class="col-md-12 mb-2">
+                        <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                            <source id="videoSource" src="videos/h_case2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="container mt-4">
+            <!-- Title -->
+            <h3 class="mt-4 mb-2">
+                Demonstration Videos - TurtleBot 3 Waffle Pi
+            </h3>
+
+            <!-- First Row -->
+            <div class="d-flex justify-content-center flex-wrap mb-3">
+                <div class="p-2" style="flex: 0 0 25%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/small/Task 1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-2" style="flex: 0 0 25%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/small/Task 10.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-2" style="flex: 0 0 25%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/small/Task 11.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-2" style="flex: 0 0 25%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/small/Task 2.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="d-flex justify-content-center flex-wrap mb-3">
+                <div class="p-2" style="flex: 0 0 25%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/small/Task 3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-2" style="flex: 0 0 25%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/small/Task 4.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-2" style="flex: 0 0 25%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/small/Task 7.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="p-2" style="flex: 0 0 25%;">
+                    <video width="100%" preload="metadata" playsinline muted loop autoplay>
+                        <source src="videos/small/Task 9.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
 
         
 
-        <div class="row justify-content-md-center">
+        <!-- <div class="row justify-content-md-center">
             <div class="col-md-10 col-lg-12">
                 <h3 class="mt-4 mb-2">
                     Framework Structure
@@ -157,7 +267,7 @@
                 <p class="text-justify">
                     More details coming soon.
                 </div>
-        </div>
+        </div> -->
 
         <!-- <div class="row justify-content-md-center">
             <div class="col-md-10 col-lg-12">
@@ -225,21 +335,7 @@
             });
         </script> -->
 
-        <div class="row justify-content-md-center">
-            <div class="col-md-10 col-lg-12">
-                <h3 class="mt-4 mb-2">
-                    Experiment Video 1: Reacting to unknown environments
-                </h3>
-                <div class="card mb-4 mt-4 text-dark bg-light">
-                    <h5 class="card-header">Deliver either Coke #1 or Coke #2 to X3</h5>
-                    <div class="col-md-12 mb-2">
-                        <video id="vid_saycan" width="100%" preload="metadata" playsinline muted controls>
-                            <source id="videoSource" src="videos/gazebo_task1.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--         
 
         <div class="row justify-content-md-center">
             <div class="col-md-10 col-lg-12">
@@ -287,7 +383,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- <div class="row justify-content-md-center">
             <div class="col-md-10 col-lg-8">
